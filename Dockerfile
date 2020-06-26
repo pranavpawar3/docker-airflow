@@ -82,7 +82,7 @@ RUN pip install torch==1.5.1+cpu torchvision==0.6.1+cpu -f https://download.pyto
 # RUN pip install --upgrade tensorflow
 
 RUN  apt-get update \
-  && apt-get install -y wget \
+  && apt-get install -y wget
 
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
