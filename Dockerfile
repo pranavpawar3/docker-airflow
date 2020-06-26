@@ -77,14 +77,15 @@ COPY script/entrypoint.sh /entrypoint.sh
 COPY config/airflow.cfg ${AIRFLOW_USER_HOME}/airflow.cfg
 # currently using non-cuda version of torch, as we dont have cuda installation on our image yet
 RUN pip install torch==1.5.1+cpu torchvision==0.6.1+cpu -f https://download.pytorch.org/whl/torch_stable.html
+
 # TF installation is optional though!!
 # RUN pip install --upgrade tensorflow
 
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
-
 RUN  apt-get update \
   && apt-get install -y wget \
+
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
 
 RUN chown -R airflow: ${AIRFLOW_USER_HOME}
 
