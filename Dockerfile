@@ -79,7 +79,7 @@ COPY config/airflow.cfg ${AIRFLOW_USER_HOME}/airflow.cfg
 RUN pip install torch==1.5.1+cpu torchvision==0.6.1+cpu -f https://download.pytorch.org/whl/torch_stable.html
 
 # TF installation is optional though!!
-# RUN pip install --upgrade tensorflow
+RUN pip install --upgrade tensorflow
 
 RUN  apt-get update \
   && apt-get install -y wget
