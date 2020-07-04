@@ -84,6 +84,8 @@ RUN pip install --upgrade tensorflow
 RUN  apt-get update \
   && apt-get install -y wget
 
+RUN pip install gevent
+
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
